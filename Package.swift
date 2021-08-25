@@ -1,28 +1,26 @@
-// swift-tools-version:5.5
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swift-tools-version:5.2
 import PackageDescription
 
 let package = Package(
-    name: "danger-xibassets",
+    name: "DangerXibAssets",
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "danger-xibassets",
-            targets: ["danger-xibassets"]),
+            name: "DangerXibAssets",
+            targets: ["DangerXibAssets"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(name: "danger-swift",url: "https://github.com/danger/swift", .upToNextMajor(from: "3.0.0")),
+        .package(name: "IBDecodable", url: "https://github.com/IBDecodable/IBDecodable.git", .upToNextMinor(from: "0.4.3"))
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "danger-xibassets",
-            dependencies: []),
+            name: "DangerXibAssets",
+            dependencies: [
+                "IBDecodable",
+                .product(name: "Danger", package: "danger-swift")
+            ]),
         .testTarget(
-            name: "danger-xibassetsTests",
-            dependencies: ["danger-xibassets"]),
+            name: "DangerXibAssetsTests",
+            dependencies: ["DangerXibAssets"]),
     ]
 )

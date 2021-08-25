@@ -1,11 +1,10 @@
 import XCTest
-@testable import danger_xibassets
+@testable import DangerXibAssets
 
-final class danger_xibassetsTests: XCTestCase {
+final class DangerXibAssetsTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(danger_xibassets().text, "Hello, World!")
     }
 }
